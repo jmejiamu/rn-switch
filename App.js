@@ -1,12 +1,26 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+// import { StatusBar } from "expo-status-bar";
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
+
+import { Header } from "./src/components/index";
 
 const App = () => {
+  let [loaded] = useFonts({
+    oswaldBold: require("./assets/fonts/Oswald-Bold.ttf"),
+    oswaldExtraLight: require("./assets/fonts/Oswald-ExtraLight.ttf"),
+    oswaldLight: require("./assets/fonts/Oswald-Light.ttf"),
+    oswaldMedium: require("./assets/fonts/Oswald-Medium.ttf"),
+    oswaldRegular: require("./assets/fonts/Oswald-Regular.ttf"),
+    oswaldSemiBold: require("./assets/fonts/Oswald-SemiBold.ttf"),
+  });
+  if (!loaded) {
+    return <AppLoading />;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Phone Bill</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header title={"Phone Bill"} />
+    </SafeAreaView>
   );
 };
 
@@ -14,8 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: StatusBar.currentHeight,
   },
 });
 

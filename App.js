@@ -5,7 +5,6 @@ import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
 import { Header } from "./src/components/index";
 import usePayment from "./src/hook/usePayment";
-import Recipe from "./src/screens/bill-recipe";
 import BillForm from "./src/screens/pay-bill-form";
 
 const App = () => {
@@ -22,26 +21,8 @@ const App = () => {
   if (!loaded) {
     return <AppLoading />;
   }
-  // const onSubmitYesPayment = () => {
-  //   setDoPayment(true);
-  // };
+
   let bill = <BillForm />;
-
-  // if (doPayment) {
-  //   bill = <Recipe />;
-  // }
-
-  // if (doPayment) {
-  //   bill = (
-  //     <View>
-  //       <Text>Do you want proceed with the payment?</Text>
-  //       <View style={styles.btnContainer}>
-  //         <Button title="Yes" onPress={() => onSubmitYesPayment()} />
-  //         <Button title="No" onPress={handleCleanInput} />
-  //       </View>
-  //     </View>
-  //   );
-  // }
 
   return (
     <SafeAreaView style={styles.container}>

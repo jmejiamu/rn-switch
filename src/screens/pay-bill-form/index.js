@@ -30,7 +30,7 @@ const BillForm = () => {
     setName(text);
   };
   const handlePhoneNumberChange = (text) => {
-    setPhoneNumber(text);
+    setPhoneNumber(text.replace(/[^0-9]/g, ""));
   };
 
   const onSubmitPayment = () => {
@@ -70,6 +70,8 @@ const BillForm = () => {
         />
         <Input
           placeholder="Phone"
+          maxLength={10}
+          keyBoardType="numeric"
           value={phoneNumber}
           onChangeText={handlePhoneNumberChange}
         />

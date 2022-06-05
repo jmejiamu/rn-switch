@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Phone Bil</Text>
+      <Text>Phone Bill</Text>
       <StatusBar style="auto" />
     </View>
   );
